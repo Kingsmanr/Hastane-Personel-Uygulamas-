@@ -62,3 +62,6 @@ class Doktor(Personel):
             self.set_deneyim_yili(input("Yeni deneyim yılını giriniz: "))
         elif secim == 8:
             self.set_hastane(input("Yeni hastane giriniz: "))
+
+    def maaş_arttir(self,yüzde_artiş):
+        self.__maas = int(self.__maas) * (100 + yüzde_artiş) / 100

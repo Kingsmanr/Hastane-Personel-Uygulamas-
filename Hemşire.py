@@ -61,3 +61,6 @@ class Hemşire(Personel):
             self.set_sertifika(input("Yeni sertifika giriniz: "))
         elif secim == 8:
             self.set_hastane(input("Yeni hastane giriniz: "))
+
+    def maaş_arttir(self,yüzde_artiş):
+        self.__maas = int(self.__maas) * (100 + yüzde_artiş) / 100

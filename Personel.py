@@ -1,6 +1,6 @@
-class Personel():
+class Personel(): # personel adında sınıf oluşturuyoruz
 
-    def __init__(self, personel_no, ad, soyad, departman, maas):
+    def __init__(self, personel_no, ad, soyad, departman, maas): # nesne oluşturuken aldığımız değerleri değişkenlere atıyoruz
         self.__personel_no = personel_no
         self.__ad = ad
         self.__soyad = soyad
@@ -8,10 +8,11 @@ class Personel():
         self.__maas = maas
 
     def __str__(self):
-        return f"\nPersonel No: {self.__personel_no}\nİsim: {self.__ad}\nSoyad: {self.__soyad}\nDepartman: {self.__departman}\nMaaş: {self.__maas}"
+        return f"\nPersonel No: {self.__personel_no}\nİsim: {self.__ad}\nSoyad: {self.__soyad}\nDepartman: {self.__departman}\nMaaş: {self.__maas}" 
+            # nesnenin yazdırılması istenmesi durumunda bilgileri nesnenin bilgilerini yazdırmak için bu fonksiyonu kullanıyoruz
     
     def get_personel_no(self):
-        return self.__personel_no
+        return self.__personel_no 
     
     def get_ad(self):
         return self.__ad
@@ -23,7 +24,7 @@ class Personel():
         return self.__departman
     
     def get_maas(self):
-        return self.__maas
+        return self.__maas                         # get/set metodları
     
     def set_personel_no(self, personel_no):
         self.__personel_no = personel_no

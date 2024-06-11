@@ -3,9 +3,10 @@ from Doktor import Doktor
 from Hemşire import Hemşire
 from Hasta import Hasta
 import pandas as pd
+# gerekli kütüphaneleri ekliyoruz
 
 def main():
-    try:
+    try: # try/except kullanarak olasi hatalarin önüne geçmeye çalişiyoruz
         # Personel nesneleri
         personel1 = Personel(1, "Ahmet", "Yilmaz", "Muhasebe", 5000)
         personel2 = Personel(2, "Mehmet", "Kaya", "İK", 6000)
@@ -59,33 +60,33 @@ def main():
         df = pd.DataFrame(data, columns=columns)
 
         # Boş olan değişken değerleri için 0 atama
-        df.fillna(0, inplace=True)
-        print("Boş olan değişken değerleri için 0 atandı:")
+          
+        print("Boş olan değişken değerleri için 0 atandi:")
         print(df, "\n")
 
         # Doktorlari uzmanlik alanlarina göre gruplandirarak toplam sayisini hesaplama
         doktor_grup = df[df['Uzmanlik'] != 0].groupby('Uzmanlik').size()
-        print("Doktorları uzmanlık alanlarına göre gruplandırarak toplam sayısı:")
+        print("Doktorlari uzmanlik alanlarina göre gruplandirarak toplam sayisi:")
         print(doktor_grup, "\n")
 
         # 5 yildan fazla deneyime sahip doktorlarin toplam sayisini bulma
         deneyimli_doktorlar = df[(df['Deneyim Yili'] > 5) & (df['Deneyim Yili'] != 0)].shape[0]
-        print(f"5 yıldan fazla deneyime sahip doktor sayısı: {deneyimli_doktorlar}\n")
+        print(f"5 yildan fazla deneyime sahip doktor sayisi: {deneyimli_doktorlar}\n")
 
         # Hasta adina göre DataFrame’i alfabetik olarak siralama
         df_hasta_sirali = df[df['Hasta No'] != 0].sort_values(by='Ad')
-        print("Hasta adına göre alfabetik olarak sıralanmış DataFrame:")
+        print("Hasta adina göre alfabetik olarak siralanmiş DataFrame:")
         print(df_hasta_sirali, "\n")
 
         # Maaşi 7000 TL üzerinde olan personelleri bulma
         yuksek_maasli_personel = df[df['Maaş'] > 7000]
-        print("Maaşı 7000 TL üzerinde olan personeller:")
+        print("Maaşi 7000 TL üzerinde olan personeller:")
         print(yuksek_maasli_personel, "\n")
 
         # Doğum tarihi 1990 ve sonrasi olan hastalari gösterme
         df['Doğum Tarihi'] = pd.to_datetime(df['Doğum Tarihi'], errors='coerce')
         yeni_hastalar = df[df['Doğum Tarihi'].dt.year >= 1990]
-        print("Doğum tarihi 1990 ve sonrası olan hastalar:")
+        print("Doğum tarihi 1990 ve sonrasi olan hastalar:")
         print(yeni_hastalar, "\n")
 
         # Var olan DataFrame’den istenen bilgileri içeren yeni bir DataFrame elde etme
